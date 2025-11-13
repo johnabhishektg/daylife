@@ -10,7 +10,7 @@ function App() {
     navigate({ to: '/discover' }) // Navigate to the '/about' route
   }
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[#0F2838]">
+    <div className="flex items-center min-h-screen bg-[#0F2838]">
       <div className="space-y-3 mb-16 mx-auto max-w-2xl">
         <h1 className="font-bold text-6xl text-white">
           Find your move. <br /> Meet your crowd. <br />

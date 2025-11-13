@@ -1,9 +1,10 @@
+import EventScroll from '@/components/EventScroll'
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
 } from '@/components/ui/input-group'
-import { createFileRoute, Link } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 import { SearchIcon } from 'lucide-react'
 
 export const Route = createFileRoute('/discover')({
@@ -35,30 +36,7 @@ function DiscoverComponent() {
         Editor's Pick ✨
       </div>
 
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div className="rounded-lg">
-          <Link to="/event/$eventId" params={{ eventId: 'sista-run' }}>
-            <img
-              src="https://www.sistersinsweat.com/images/home/20251008111951144.png"
-              alt=""
-              className="rounded size-[70%] object-cover"
-            />
-          </Link>
-          <div className="flex mt-2">
-            <div className="text-white border py-1 px-3 rounded-full border-white">
-              Event
-            </div>
-          </div>
-          <h2 className="text-2xl text-white font-bold">The SIStra Run</h2>
-          <p className="text-gray-500">
-            Supported by Nike, brought to you by Sisters in Sweat, co-promoted
-            by Meraki Sport & Entertainment & in association with Brookefield
-            Properties—The SIStra Run is all about creating a safe, empowering
-            and joy-filled space for women to run free! Bole toh, Ladies Special
-            hai! Book now!
-          </p>
-        </div>
-      </div>
+      <EventScroll />
     </div>
   )
 }
