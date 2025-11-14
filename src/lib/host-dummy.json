@@ -1,0 +1,81 @@
+[
+  {
+    "userId": "user_001",
+    "businessName": "Sunrise Flow Yoga",
+    "businessUrl": "https://sunriseflowyoga.com",
+    "members": 3272,
+    "events": 533,
+    "location": "Bangalore",
+    "instagramHandle": "@sunriseflow",
+    "certifications": ["RYT-500", "NASM-CPT"],
+    "governmentIdUrl": "https://dummyfile.com/id_001.pdf",
+    "approved": true,
+    "approvalNote": "Auto-approved"
+  },
+  {
+    "userId": "user_002",
+    "businessName": "HYROX Mission",
+    "businessUrl": "https://missionhyrox.com",
+    "members": 3272,
+    "events": 533,
+    "location": "Bangalore",
+    "description": "A group for people who love volleyball and breaking a good sweat! 🥵🏐 We post events every Friday around noon.",
+    "instagramHandle": "@missionhyrox",
+    "certifications": ["HYROX Certified Coach", "CrossFit-L2"],
+    "governmentIdUrl": "https://dummyfile.com/id_002.pdf",
+    "approved": true,
+    "approvalNote": "Background check cleared"
+  },
+  {
+    "userId": "user_003",
+    "businessName": "Noe Valley Pilates Studio",
+    "businessUrl": "https://noevalleypilates.com",
+    "members": 3272,
+    "events": 533,
+    "location": "Bangalore",
+    "instagramHandle": "@nv_pilates",
+    "certifications": ["PMA-CPT", "Balanced Body Master Trainer"],
+    "governmentIdUrl": "https://dummyfile.com/id_003.pdf",
+    "approved": false,
+    "approvalNote": "Walk-through completed"
+  },
+  {
+    "userId": "user_004",
+    "businessName": "Crissy Field Bootcamp",
+    "businessUrl": "",
+    "members": 3272,
+    "events": 533,
+    "location": "Mumbai",
+    "instagramHandle": "@crissybootcamp",
+    "certifications": ["NASM-CPT", "TRX"],
+    "governmentIdUrl": "https://dummyfile.com/id_004.pdf",
+    "approved": true,
+    "approvalNote": "Community partner"
+  },
+  {
+    "userId": "user_005",
+    "businessName": "The Assembly Wellness",
+    "businessUrl": "https://theassembly.com",
+    "members": 3272,
+    "events": 533,
+    "location": "Bangalore",
+    "instagramHandle": "@theassembly",
+    "certifications": ["Sound-Healing Level 3", "YTT-200"],
+    "governmentIdUrl": "https://dummyfile.com/id_005.pdf",
+    "approved": true,
+    "approvalNote": "Premium venue verified"
+  },
+  {
+    "userId": "user_006",
+    "businessName": "SOMA Stout Boxing",
+    "businessUrl": "https://somastout.com",
+    "members": 3272,
+    "events": 533,
+    "location": "Bangalore",
+    "instagramHandle": "@somastout_boxing",
+    "certifications": ["USA Boxing Coach", "ACE-CPT"],
+    "governmentIdUrl": "https://dummyfile.com/id_006.pdf",
+    "approved": true,
+    "approvalNote": "Insurance docs received"
+  }
+]

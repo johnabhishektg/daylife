@@ -1,7 +1,7 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
-import events from '@/lib/dummy-data.json'
-import { format, parseISO } from 'date-fns'
 import { Button } from '@/components/ui/button'
+import events from '@/lib/dummy-data.json'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { format, parseISO } from 'date-fns'
 
 export const Route = createFileRoute('/event/$eventId')({
   component: RouteComponent,
@@ -25,8 +25,8 @@ function RouteComponent() {
 
         <h1 className="text-4xl text-white font-bold">{event.title}</h1>
 
-        <Link to={'/'}>
-          <div className=" flex items-center space-x-2">
+        <Link to={'/host/$hostId'} params={{ hostId: `${event.hostUserId}` }}>
+          <div className=" flex items-center space-x-2 mb-3">
             <div className="bg-white border border-black size-6 rounded-full" />
             <p>{event.hostUserId}</p>
           </div>

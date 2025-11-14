@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EventIndexRouteImport } from './routes/event/index'
+import { Route as HostHostIdRouteImport } from './routes/host/$hostId'
 import { Route as EventEventIdRouteImport } from './routes/event/$eventId'
 import { Route as DemoStartServerFuncsRouteImport } from './routes/demo/start.server-funcs'
 import { Route as DemoStartApiRequestRouteImport } from './routes/demo/start.api-request'
@@ -34,6 +35,11 @@ const IndexRoute = IndexRouteImport.update({
 const EventIndexRoute = EventIndexRouteImport.update({
   id: '/event/',
   path: '/event/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HostHostIdRoute = HostHostIdRouteImport.update({
+  id: '/host/$hostId',
+  path: '/host/$hostId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventEventIdRoute = EventEventIdRouteImport.update({
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/discover': typeof DiscoverRoute
   '/event/$eventId': typeof EventEventIdRoute
+  '/host/$hostId': typeof HostHostIdRoute
   '/event': typeof EventIndexRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/discover': typeof DiscoverRoute
   '/event/$eventId': typeof EventEventIdRoute
+  '/host/$hostId': typeof HostHostIdRoute
   '/event': typeof EventIndexRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
@@ -108,6 +116,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/discover': typeof DiscoverRoute
   '/event/$eventId': typeof EventEventIdRoute
+  '/host/$hostId': typeof HostHostIdRoute
   '/event/': typeof EventIndexRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
@@ -123,6 +132,7 @@ export interface FileRouteTypes {
     | '/'
     | '/discover'
     | '/event/$eventId'
+    | '/host/$hostId'
     | '/event'
     | '/demo/api/names'
     | '/demo/start/api-request'
@@ -136,6 +146,7 @@ export interface FileRouteTypes {
     | '/'
     | '/discover'
     | '/event/$eventId'
+    | '/host/$hostId'
     | '/event'
     | '/demo/api/names'
     | '/demo/start/api-request'
@@ -149,6 +160,7 @@ export interface FileRouteTypes {
     | '/'
     | '/discover'
     | '/event/$eventId'
+    | '/host/$hostId'
     | '/event/'
     | '/demo/api/names'
     | '/demo/start/api-request'
@@ -163,6 +175,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DiscoverRoute: typeof DiscoverRoute
   EventEventIdRoute: typeof EventEventIdRoute
+  HostHostIdRoute: typeof HostHostIdRoute
   EventIndexRoute: typeof EventIndexRoute
   DemoApiNamesRoute: typeof DemoApiNamesRoute
   DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
@@ -194,6 +207,13 @@ declare module '@tanstack/react-router' {
       path: '/event'
       fullPath: '/event'
       preLoaderRoute: typeof EventIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/host/$hostId': {
+      id: '/host/$hostId'
+      path: '/host/$hostId'
+      fullPath: '/host/$hostId'
+      preLoaderRoute: typeof HostHostIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/event/$eventId': {
@@ -259,6 +279,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DiscoverRoute: DiscoverRoute,
   EventEventIdRoute: EventEventIdRoute,
+  HostHostIdRoute: HostHostIdRoute,
   EventIndexRoute: EventIndexRoute,
   DemoApiNamesRoute: DemoApiNamesRoute,
   DemoStartApiRequestRoute: DemoStartApiRequestRoute,
