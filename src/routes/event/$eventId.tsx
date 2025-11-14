@@ -1,7 +1,8 @@
-import { Button } from '@/components/ui/button'
-import events from '@/lib/dummy-data.json'
 import { createFileRoute, Link } from '@tanstack/react-router'
+import events from '@/data/dummy-data.json'
 import { format, parseISO } from 'date-fns'
+import { Button } from '@/components/ui/button'
+import hosts from '@/data/host-dummy.json'
 
 export const Route = createFileRoute('/event/$eventId')({
   component: RouteComponent,
@@ -12,6 +13,7 @@ function RouteComponent() {
 
   const currEvent = events.filter((e) => e.slug === eventId)
   const event = currEvent[0]
+  const host = hosts.find((h) => h.userId === event.hostUserId)
 
   const rawDate = parseISO(event.startAt)
   const date = format(rawDate, 'EEE MMM do @ h:mma')
@@ -28,7 +30,7 @@ function RouteComponent() {
         <Link to={'/host/$hostId'} params={{ hostId: `${event.hostUserId}` }}>
           <div className=" flex items-center space-x-2 mb-3">
             <div className="bg-white border border-black size-6 rounded-full" />
-            <p>{event.hostUserId}</p>
+            <p>{host?.businessName}</p>
           </div>
         </Link>
 

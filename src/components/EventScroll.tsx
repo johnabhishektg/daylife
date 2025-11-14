@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useState, type FC, type WheelEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from '@tanstack/react-router'
-import events from '@/lib/dummy-data.json'
+import events from '@/data/dummy-data.json'
 
 const PAGE = 4
 

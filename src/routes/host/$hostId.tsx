@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
-import events from '@/lib/dummy-data.json'
-import hosts from '@/lib/host-dummy.json'
+import events from '@/data/dummy-data.json'
+import hosts from '@/data/host-dummy.json'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { format } from 'date-fns'
 import { BadgeCheck, Calendar, Coins, Pin } from 'lucide-react'
