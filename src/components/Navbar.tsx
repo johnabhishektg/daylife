@@ -39,9 +39,11 @@ export default function Navbar() {
         <div className="flex justify-center space-x-3 items-center">
           {session ? (
             <div className="flex items-center gap-3">
-              <div className="cursor-pointer bg-slate-700 rounded p-2 transition-colors ease-in hover:bg-slate-500">
-                <Ticket className="text-white rotate-90" />
-              </div>
+              <Link to="/create/event">
+                <div className="cursor-pointer bg-slate-700 rounded p-2 transition-colors ease-in hover:bg-slate-500">
+                  <Ticket className="text-white rotate-90" />
+                </div>
+              </Link>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Avatar className="size-10">
