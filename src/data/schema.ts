@@ -69,9 +69,9 @@ export const verification = pgTable('verification', {
 })
 
 export const community = pgTable('community', {
-  id: text('id').primaryKey(), // cuid or nanoid
+  id: text('id').primaryKey(),
   name: text('name').notNull(),
-  slug: text('slug').notNull().unique(), // URL-safe
+  slug: text('slug').notNull().unique(),
   description: text('description'),
   coverImageUrl: text('cover_image_url'),
   ownerId: text('owner_id')

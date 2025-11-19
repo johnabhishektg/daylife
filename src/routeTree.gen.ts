@@ -17,6 +17,7 @@ import { Route as HostHostIdRouteImport } from './routes/host/$hostId'
 import { Route as EventEventIdRouteImport } from './routes/event/$eventId'
 import { Route as CreateEventIndexRouteImport } from './routes/create/event/index'
 import { Route as CreateCommunityIndexRouteImport } from './routes/create/community/index'
+import { Route as ApiTrpcSplatRouteImport } from './routes/api/trpc/$'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
 const DiscoverRoute = DiscoverRouteImport.update({
@@ -59,6 +60,11 @@ const CreateCommunityIndexRoute = CreateCommunityIndexRouteImport.update({
   path: '/create/community/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiTrpcSplatRoute = ApiTrpcSplatRouteImport.update({
+  id: '/api/trpc/$',
+  path: '/api/trpc/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/event': typeof EventIndexRoute
   '/test': typeof TestIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/trpc/$': typeof ApiTrpcSplatRoute
   '/create/community': typeof CreateCommunityIndexRoute
   '/create/event': typeof CreateEventIndexRoute
 }
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/event': typeof EventIndexRoute
   '/test': typeof TestIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/trpc/$': typeof ApiTrpcSplatRoute
   '/create/community': typeof CreateCommunityIndexRoute
   '/create/event': typeof CreateEventIndexRoute
 }
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/event/': typeof EventIndexRoute
   '/test/': typeof TestIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/trpc/$': typeof ApiTrpcSplatRoute
   '/create/community/': typeof CreateCommunityIndexRoute
   '/create/event/': typeof CreateEventIndexRoute
 }
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/event'
     | '/test'
     | '/api/auth/$'
+    | '/api/trpc/$'
     | '/create/community'
     | '/create/event'
   fileRoutesByTo: FileRoutesByTo
@@ -120,6 +130,7 @@ export interface FileRouteTypes {
     | '/event'
     | '/test'
     | '/api/auth/$'
+    | '/api/trpc/$'
     | '/create/community'
     | '/create/event'
   id:
@@ -131,6 +142,7 @@ export interface FileRouteTypes {
     | '/event/'
     | '/test/'
     | '/api/auth/$'
+    | '/api/trpc/$'
     | '/create/community/'
     | '/create/event/'
   fileRoutesById: FileRoutesById
@@ -143,6 +155,7 @@ export interface RootRouteChildren {
   EventIndexRoute: typeof EventIndexRoute
   TestIndexRoute: typeof TestIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiTrpcSplatRoute: typeof ApiTrpcSplatRoute
   CreateCommunityIndexRoute: typeof CreateCommunityIndexRoute
   CreateEventIndexRoute: typeof CreateEventIndexRoute
 }
@@ -205,6 +218,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CreateCommunityIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/trpc/$': {
+      id: '/api/trpc/$'
+      path: '/api/trpc/$'
+      fullPath: '/api/trpc/$'
+      preLoaderRoute: typeof ApiTrpcSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -223,6 +243,7 @@ const rootRouteChildren: RootRouteChildren = {
   EventIndexRoute: EventIndexRoute,
   TestIndexRoute: TestIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiTrpcSplatRoute: ApiTrpcSplatRoute,
   CreateCommunityIndexRoute: CreateCommunityIndexRoute,
   CreateEventIndexRoute: CreateEventIndexRoute,
 }

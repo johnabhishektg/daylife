@@ -151,7 +151,7 @@ function App() {
       `}</style>
 
       {/* 1. HERO */}
-      <section className="mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 text-center">
+      <section className="mx-auto flex min-h-screen max-w-5xl flex-col items-center  justify-center px-6 text-center">
         <motion.div
           {...fadeIn}
           className="glass rounded-3xl p-8 space-y-3 md:p-12"

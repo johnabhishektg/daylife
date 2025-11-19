@@ -52,7 +52,7 @@ export function CreateEventForm() {
       addressRaw: '',
       city: 'bengaluru', // will be set by Select
       timezone: 'Asia/Kolkata',
-      startAt: new Date(), // will be set by Calendar
+      startAt: new Date(),
       endAt: new Date(),
       status: 'draft',
     },
@@ -66,8 +66,6 @@ export function CreateEventForm() {
       form.setError('endAt', { message: 'End must be after start' })
     }
     console.log(values)
-    console.log('====================================')
-    console.log('====================================')
     // onSuccess({ ...values, communityId }) // parent decides: POST /api/events
   }
 
