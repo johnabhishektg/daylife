@@ -15,6 +15,7 @@ import { Route as TestIndexRouteImport } from './routes/test/index'
 import { Route as EventIndexRouteImport } from './routes/event/index'
 import { Route as HostHostIdRouteImport } from './routes/host/$hostId'
 import { Route as EventEventIdRouteImport } from './routes/event/$eventId'
+import { Route as CommunityCommunityIdRouteImport } from './routes/community/$communityId'
 import { Route as CreateEventIndexRouteImport } from './routes/create/event/index'
 import { Route as CreateCommunityIndexRouteImport } from './routes/create/community/index'
 import { Route as ApiTrpcSplatRouteImport } from './routes/api/trpc/$'
@@ -50,6 +51,11 @@ const EventEventIdRoute = EventEventIdRouteImport.update({
   path: '/event/$eventId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommunityCommunityIdRoute = CommunityCommunityIdRouteImport.update({
+  id: '/community/$communityId',
+  path: '/community/$communityId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CreateEventIndexRoute = CreateEventIndexRouteImport.update({
   id: '/create/event/',
   path: '/create/event/',
@@ -74,6 +80,7 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/discover': typeof DiscoverRoute
+  '/community/$communityId': typeof CommunityCommunityIdRoute
   '/event/$eventId': typeof EventEventIdRoute
   '/host/$hostId': typeof HostHostIdRoute
   '/event': typeof EventIndexRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/discover': typeof DiscoverRoute
+  '/community/$communityId': typeof CommunityCommunityIdRoute
   '/event/$eventId': typeof EventEventIdRoute
   '/host/$hostId': typeof HostHostIdRoute
   '/event': typeof EventIndexRoute
@@ -99,6 +107,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/discover': typeof DiscoverRoute
+  '/community/$communityId': typeof CommunityCommunityIdRoute
   '/event/$eventId': typeof EventEventIdRoute
   '/host/$hostId': typeof HostHostIdRoute
   '/event/': typeof EventIndexRoute
@@ -113,6 +122,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/discover'
+    | '/community/$communityId'
     | '/event/$eventId'
     | '/host/$hostId'
     | '/event'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/discover'
+    | '/community/$communityId'
     | '/event/$eventId'
     | '/host/$hostId'
     | '/event'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/discover'
+    | '/community/$communityId'
     | '/event/$eventId'
     | '/host/$hostId'
     | '/event/'
@@ -150,6 +162,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DiscoverRoute: typeof DiscoverRoute
+  CommunityCommunityIdRoute: typeof CommunityCommunityIdRoute
   EventEventIdRoute: typeof EventEventIdRoute
   HostHostIdRoute: typeof HostHostIdRoute
   EventIndexRoute: typeof EventIndexRoute
@@ -204,6 +217,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventEventIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/community/$communityId': {
+      id: '/community/$communityId'
+      path: '/community/$communityId'
+      fullPath: '/community/$communityId'
+      preLoaderRoute: typeof CommunityCommunityIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/create/event/': {
       id: '/create/event/'
       path: '/create/event'
@@ -238,6 +258,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DiscoverRoute: DiscoverRoute,
+  CommunityCommunityIdRoute: CommunityCommunityIdRoute,
   EventEventIdRoute: EventEventIdRoute,
   HostHostIdRoute: HostHostIdRoute,
   EventIndexRoute: EventIndexRoute,

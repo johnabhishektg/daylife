@@ -4,6 +4,7 @@ import { useState, type FC, type WheelEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from '@tanstack/react-router'
 import events from '@/data/dummy-data.json'
+import { Button } from './ui/button'
 
 const PAGE = 4
 
@@ -43,17 +44,32 @@ export default function EvenScroll() {
 
   return (
     <div className="relative w-full select-none">
-      {/* Left arrow */}
-      <button
-        onClick={() => slide(-1)}
-        disabled={!canGoBack}
-        className="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-2 shadow-md transition disabled:opacity-40"
-        aria-label="Previous"
-      >
-        <ChevronLeft className="h-6 w-6" />
-      </button>
+      <div className="flex justify-between">
+        <div className="mt-12 text-[#FF3E2B] font-bold text-2xl">
+          Editor's Pick ✨
+        </div>
+        <div>
+          <Button
+            onClick={() => slide(-1)}
+            variant="outline"
+            disabled={!canGoBack}
+            className="p-4 rounded-full disabled:opacity-40"
+            aria-label="Previous"
+          >
+            <ChevronLeft className="h-8 w-8" />
+          </Button>
+          <Button
+            onClick={() => slide(1)}
+            variant="outline"
+            disabled={!canGoForward}
+            className="p-4 rounded-full disabled:opacity-40"
+            aria-label="Next"
+          >
+            <ChevronRight className="h-8 w-8" />
+          </Button>
+        </div>
+      </div>
 
-      {/* Cards container with wheel listener */}
       <div className="flex gap-4 overflow-hidden px-10 py-4" onWheel={onWheel}>
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.div
@@ -74,14 +90,6 @@ export default function EvenScroll() {
       </div>
 
       {/* Right arrow */}
-      <button
-        onClick={() => slide(1)}
-        disabled={!canGoForward}
-        className="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-2 shadow-md transition disabled:opacity-40"
-        aria-label="Next"
-      >
-        <ChevronRight className="h-6 w-6" />
-      </button>
     </div>
   )
 }
@@ -108,7 +116,6 @@ const Card: FC<CardProps> = ({
     <Link to="/event/$eventId" params={{ eventId: slug }}>
       <motion.div
         whileHover={{
-          scale: [null, 1.1],
           transition: {
             duration: 0.5,
             times: [0, 0.6],
@@ -122,7 +129,7 @@ const Card: FC<CardProps> = ({
       >
         <img
           src={coverImageUrl}
-          className="rounded w-[303px] h-[383px] object-cover hover:w-[333px]"
+          className="rounded w-[303px] h-[383px] object-cover "
           alt={title}
         />
       </motion.div>

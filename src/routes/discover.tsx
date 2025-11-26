@@ -1,4 +1,5 @@
 import EventScroll from '@/components/EventScroll'
+import { Button } from '@/components/ui/button'
 import {
   InputGroup,
   InputGroupAddon,
@@ -13,7 +14,7 @@ export const Route = createFileRoute('/discover')({
 
 function DiscoverComponent() {
   return (
-    <div className="bg-[#0F2838] min-h-screen px-12 py-6">
+    <div className="bg-[#060708] min-h-screen px-12 py-6">
       <div className="flex flex-col items-center justify-center space-y-3">
         <h1 className="text-6xl font-bold text-[#FF3E2B]">
           Fitness events happening around you!
@@ -30,10 +31,6 @@ function DiscoverComponent() {
             <SearchIcon />
           </InputGroupAddon>
         </InputGroup>
-      </div>
-
-      <div className="mt-12 text-[#FF3E2B] font-bold text-2xl">
-        Editor's Pick ✨
       </div>
 
       <EventScroll />

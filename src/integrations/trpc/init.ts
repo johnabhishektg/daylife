@@ -1,7 +1,13 @@
+import { auth } from '@/lib/auth'
 import { initTRPC } from '@trpc/server'
 import superjson from 'superjson'
 
-const t = initTRPC.create({
+export const createTRPCContext = async ({ req }: { req: Request }) => {
+  const session = await auth.api.getSession({ headers: req.headers })
+  return { session, req }
+}
+
+const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: superjson,
 })
 

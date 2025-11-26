@@ -26,13 +26,13 @@ export default function Navbar() {
     navigate({ to: '/discover' }) // Navigate to the '/about' route
   }
   return (
-    <div className="sticky top-0 bg-slate-800 py-4 px-2">
+    <div className="sticky top-0 z-10 bg-[#111417] border-b border-[#151a1d] shadow-neutral-400 py-4 px-2">
       <div className="flex justify-between items-center px-2">
         <div className="flex items-center">
           <Link to="/">
             <div className="flex shrink-0 space-x-2 items-center">
               <Icons.logo className="h-8 w-auto" />
-              <span className="text-white text-2xl font-bold">Daylife</span>
+              <span className="text-white text-2xl font-bold">Dawn</span>
             </div>
           </Link>
         </div>

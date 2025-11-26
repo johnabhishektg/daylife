@@ -1,24 +1,32 @@
 import db from '@/data/db'
+import { eq } from 'drizzle-orm'
 import { community } from '@/data/schema'
+import { createCommunitySchema } from '@/lib/schemas/community'
 import { TRPCRouterRecord } from '@trpc/server'
 import { nanoid } from 'nanoid'
 import slugify from 'slugify'
-import { z } from 'zod'
 import { createTRPCRouter, publicProcedure } from './init'
-
-export const createCommunitySchema = z.object({
-  name: z.string().min(1).max(120),
-  description: z.string().optional(),
-  coverImageUrl: z.string().url().optional(),
-})
+import z from 'zod'
 
 const communityRouter = {
+  getbyId: publicProcedure
+    .input(z.object({ id: z.string() })) // id from URL or body
+    .query(async ({ input }) => {
+      const [row] = await db
+        .select()
+        .from(community)
+        .where(eq(community.slug, input.id))
+      return row ?? null // null if not found
+    }),
+  get: publicProcedure.query(async () => {
+    const rows = await db.select().from(community)
+    return rows
+  }),
   create: publicProcedure
     .input(createCommunitySchema)
-    .mutation(async ({ input }) => {
-      // if (!session?.user?.id) {
-      //   throw new Error('Unauthorized')
-      // }
+    .mutation(async ({ input, ctx }) => {
+      const session = ctx.session
+      if (!session?.user?.id) throw new Error('Unauthorized')
 
       const newCommunity = await db
         .insert(community)
@@ -28,7 +36,7 @@ const communityRouter = {
           slug: slugify(input.name, { lower: true, strict: true }),
           description: input.description,
           coverImageUrl: input.coverImageUrl,
-          ownerId: '7qEjEBIJbdBlzxUaEwfKGKOAXUGdigTX',
+          ownerId: session?.user.id,
         })
         .returning()
 

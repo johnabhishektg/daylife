@@ -45,7 +45,6 @@ function RouteComponent() {
       description: '',
       coverImageUrl:
         'https://gos3.ibcdn.com/d39b9e75-dbfb-4803-ba07-108df0b2eae2.jpg',
-      // ownerId: '',
     },
   })
 
