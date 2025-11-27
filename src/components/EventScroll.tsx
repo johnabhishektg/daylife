@@ -43,17 +43,17 @@ export default function EvenScroll() {
   }
 
   return (
-    <div className="relative w-full select-none">
-      <div className="flex justify-between">
-        <div className="mt-12 text-[#FF3E2B] font-bold text-2xl">
+    <div className="relative w-full select-none p-4">
+      <div className="flex items-center space-y-6 justify-between">
+        <div className="text-[#FF3E2B] font-bold text-2xl">
           Editor's Pick ✨
         </div>
-        <div>
+        <div className="flex gap-3">
           <Button
             onClick={() => slide(-1)}
             variant="outline"
             disabled={!canGoBack}
-            className="p-4 rounded-full disabled:opacity-40"
+            className="cursor-pointer rounded-full disabled:opacity-40"
             aria-label="Previous"
           >
             <ChevronLeft className="h-8 w-8" />
@@ -62,7 +62,7 @@ export default function EvenScroll() {
             onClick={() => slide(1)}
             variant="outline"
             disabled={!canGoForward}
-            className="p-4 rounded-full disabled:opacity-40"
+            className="cursor-pointer rounded-full disabled:opacity-40"
             aria-label="Next"
           >
             <ChevronRight className="h-8 w-8" />

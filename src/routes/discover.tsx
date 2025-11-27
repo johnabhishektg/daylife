@@ -1,5 +1,4 @@
 import EventScroll from '@/components/EventScroll'
-import { Button } from '@/components/ui/button'
 import {
   InputGroup,
   InputGroupAddon,

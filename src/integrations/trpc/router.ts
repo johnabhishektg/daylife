@@ -10,13 +10,13 @@ import z from 'zod'
 
 const communityRouter = {
   getbyId: publicProcedure
-    .input(z.object({ id: z.string() })) // id from URL or body
+    .input(z.object({ id: z.string() }))
     .query(async ({ input }) => {
       const [row] = await db
         .select()
         .from(community)
         .where(eq(community.slug, input.id))
-      return row ?? null // null if not found
+      return row ?? null
     }),
   get: publicProcedure.query(async () => {
     const rows = await db.select().from(community)
