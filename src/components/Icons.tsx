@@ -57,4 +57,56 @@ export const Icons = {
       <path d="M1 1h22v22H1z" fill="none" />
     </svg>
   ),
+  logoTilt: (props: LucideProps) => (
+    <svg
+      {...props}
+      width="64"
+      height="66"
+      viewBox="0 0 64 66"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M13.7161 19.7814L29.8696 28.494M29.8696 28.494C33.6746 23.0581 38.8294 11.0232 29.0083 6.37078C26.2 5.04044 13.4988 12.7133 29.8696 28.494Z"
+        stroke="currentColor"
+        strokeWidth="3.88066"
+        strokeLinecap="round"
+      />
+      <path
+        d="M45.522 11.4319L34.7454 31.4122M34.7454 31.4122C40.1813 35.2172 52.2163 40.372 56.8687 30.5509C58.199 27.7426 50.5261 15.0414 34.7454 31.4122Z"
+        stroke="currentColor"
+        strokeWidth="3.88066"
+        strokeLinecap="round"
+      />
+      <path
+        d="M16.6269 53.0935L27.4035 33.1132M27.4035 33.1132C21.9676 29.3082 9.93264 24.1534 5.28026 33.9745C3.94992 36.7828 11.6228 49.484 27.4035 33.1132Z"
+        stroke="currentColor"
+        strokeWidth="3.88066"
+        strokeLinecap="round"
+      />
+      <path
+        d="M48.5579 44.513L32.4043 35.8004M32.4043 35.8004C28.5993 41.2363 23.4446 53.2713 33.2656 57.9237C36.0739 59.254 48.7751 51.5811 32.4043 35.8004Z"
+        stroke="currentColor"
+        strokeWidth="3.88066"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  underline: (props: LucideProps) => (
+    <svg
+      {...props}
+      width="213"
+      height="31"
+      viewBox="0 0 213 31"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.37402 22.2695L212.374 2.36328L31.6999 28.3633L158.779 22.2695"
+        stroke="currentColor"
+        strokeWidth="4.74782"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
 }

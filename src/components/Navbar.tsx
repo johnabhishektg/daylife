@@ -1,6 +1,7 @@
-import { signIn, signOut, useSession } from '@/lib/auth-client'
+import { signOut, useSession } from '@/lib/auth-client'
 import { Link, useNavigate } from '@tanstack/react-router'
 import { Ticket } from 'lucide-react'
+import AuthModal from './AuthModal'
 import { Icons } from './Icons'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Button } from './ui/button'
@@ -14,9 +15,6 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
-import { SignIn } from './SignIn'
-import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
-import AuthModal from './AuthModal'
 
 export default function Navbar() {
   const { data } = useSession()
