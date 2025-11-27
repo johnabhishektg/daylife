@@ -5,11 +5,12 @@ import { motion, Variants } from 'framer-motion'
 
 const fadeIn: Variants = {
   initial: { opacity: 0, y: 30 },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' }, // ← move here
-  },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+}
+
+const imageFade: Variants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 1.0, ease: 'easeInOut' } },
 }
 
 export const Route = createFileRoute('/')({
@@ -26,7 +27,7 @@ function App() {
     navigate({ to: '/create/community' }) // Navigate to the '/about' route
   }
   return (
-    <div className="relative min-h-screen bg-[#111417] text-slate-100 overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#111417] text-slate-100 overflow-hidden">
       <section className="mx-auto h-[80vh] flex max-w-5xl flex-col items-center justify-center text-center">
         <motion.div {...fadeIn} className="glass rounded-3xl space-y-3 md:p-12">
           <h1 className="font-normal space-y-6 text-left text-6xl text-white">
@@ -59,9 +60,14 @@ function App() {
           </div>
 
           <div>
-            <div className="size-[430px] absolute -left-0.5 -bottom-3 rounded-full bg-[#3C4CE6] blur-3xl opacity-6" />
-            <div className="size-[430px] absolute left-6 rounded-full bg-[#E53D67] blur-3xl opacity-5" />
-            <div className="size-[430px] absolute left-0 -bottom-4 rounded-full bg-[#E763ED] blur-3xl opacity-4" />
+            <motion.img
+              variants={imageFade}
+              initial="initial"
+              animate="animate"
+              className="absolute left-0"
+              src="/hero-gradient.png"
+              alt=""
+            />
           </div>
         </motion.div>
       </section>

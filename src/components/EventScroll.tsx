@@ -45,9 +45,7 @@ export default function EvenScroll() {
   return (
     <div className="relative w-full select-none p-4">
       <div className="flex items-center space-y-6 justify-between">
-        <div className="text-[#FF3E2B] font-bold text-2xl">
-          Editor's Pick ✨
-        </div>
+        <div className="text-white font-bold text-2xl">Featured Events</div>
         <div className="flex gap-3">
           <Button
             onClick={() => slide(-1)}

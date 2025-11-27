@@ -10,7 +10,7 @@ export default function AuthModal() {
           Login
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md bg-linear-to-tl to-[#1F1F1F] from-[#0A0A0A] text-white border-none">
+      <DialogContent className="sm:max-w-md bg-linear-to-tl to-[#1F1F1F] from-[#0A0A0A] text-white outline-0 border-none">
         {/* #1F1F1F */}
         <SignIn />
       </DialogContent>
