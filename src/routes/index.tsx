@@ -139,16 +139,9 @@ function App() {
     navigate({ to: '/create/community' }) // Navigate to the '/about' route
   }
   return (
-    <div className="relative min-h-screen bg-slate-900 text-slate-100 overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#111417] text-slate-100 overflow-x-hidden">
       {/* Aurora background */}
       <div className="pointer-events-none fixed inset-0 z-[-1] bg-linear-to-r from-purple-600 via-indigo-600 to-cyan-500 opacity-30 animate-[aurora_8s_ease-in-out_infinite]" />
-
-      <style>{`
-        @keyframes aurora {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-      `}</style>
 
       {/* 1. HERO */}
       <section className="mx-auto flex min-h-screen max-w-5xl flex-col items-center  justify-center px-6 text-center">
@@ -156,7 +149,7 @@ function App() {
           {...fadeIn}
           className="glass rounded-3xl p-8 space-y-3 md:p-12"
         >
-          <h1 className="font-bold text-6xl text-white">
+          <h1 className="font-normal text-6xl text-white">
             Find your move. <br /> Meet your crowd. <br />
             Live your <span className="text-[#FF3E2B]">Daylife</span>
           </h1>

@@ -14,6 +14,9 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
+import { SignIn } from './SignIn'
+import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
+import AuthModal from './AuthModal'
 
 export default function Navbar() {
   const { data } = useSession()
@@ -26,12 +29,12 @@ export default function Navbar() {
     navigate({ to: '/discover' }) // Navigate to the '/about' route
   }
   return (
-    <div className="sticky top-0 z-10 bg-[#111417] border-b border-[#151a1d] shadow-neutral-400 py-4 px-2">
+    <div className="sticky top-0 z-10 bg-[#111417] border-b border-white/35 shadow-neutral-400 py-4 px-2">
       <div className="flex justify-between items-center px-2">
         <div className="flex items-center">
           <Link to="/">
-            <div className="flex shrink-0 space-x-2 items-center">
-              <Icons.logo className="h-8 w-auto" />
+            <div className="flex shrink-0 space-x-1 items-center">
+              <Icons.logo className="h-6 w-auto" />
               <span className="text-white text-2xl font-bold">Dawn</span>
             </div>
           </Link>
@@ -77,7 +80,7 @@ export default function Navbar() {
               </DropdownMenu>
             </div>
           ) : (
-            <div>
+            <div className="space-x-3">
               <Button
                 variant="ghost"
                 onClick={goToDiscoverPage}
@@ -85,12 +88,8 @@ export default function Navbar() {
               >
                 Discover
               </Button>
-              <Button
-                onClick={() => signIn.social({ provider: 'google' })}
-                className="cursor-pointer"
-              >
-                Login
-              </Button>
+
+              <AuthModal />
             </div>
           )}
 
