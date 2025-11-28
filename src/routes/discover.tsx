@@ -69,11 +69,11 @@ function DiscoverComponent() {
         <EventScroll /> // original paginated carousel
       )}
 
-      <img
+      {/* <img
         className="absolute z-0 left-0 bottom-0 opacity-60"
         src="/hero-gradient.png"
         alt=""
-      />
+      /> */}
     </div>
   )
 }

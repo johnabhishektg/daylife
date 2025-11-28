@@ -15,7 +15,18 @@ const UserAuthForm: FC<UserAuthFormProps> = ({ className, ...props }) => {
     setIsLoading(true)
 
     try {
-      await signIn.social({ provider: 'google' })
+      await signIn.social(
+        { provider: 'google' },
+        {
+          onError: (e) => {
+            toast.error(e.error.name)
+          },
+          onSuccess: () => {
+            window.location.reload()
+            toast.success("You're logged in!")
+          },
+        },
+      )
     } catch (error) {
       toast('bruh', {
         description: 'There was an error logging in with Google',

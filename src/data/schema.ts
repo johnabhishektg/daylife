@@ -133,7 +133,6 @@ export const event = pgTable('event', {
   })
     .default('draft')
     .notNull(),
-  // lat,lng,checkInCode  removed
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at')
     .defaultNow()

@@ -1,4 +1,6 @@
+import { SignIn } from '@/components/SignIn'
 import { Button } from '@/components/ui/button'
+import { Dialog, DialogContent } from '@/components/ui/dialog'
 import {
   Form,
   FormControl,
@@ -14,7 +16,8 @@ import { useTRPC } from '@/integrations/trpc/react'
 import { getSession } from '@/lib/auth-client'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
@@ -30,6 +33,30 @@ export const Route = createFileRoute('/create/community/')({
 })
 
 function RouteComponent() {
+  const userId = Route.useLoaderData()
+  const navigate = useNavigate()
+  const [authOpen, setAuthOpen] = useState(!userId)
+
+  const handleOpenChange = (open: boolean) => {
+    if (!open) {
+      setAuthOpen(false)
+      navigate({ to: '/' })
+    } else {
+      setAuthOpen(true)
+    }
+  } // pop if null
+
+  /* auth modal */
+  if (!userId) {
+    return (
+      <Dialog open={authOpen} onOpenChange={handleOpenChange}>
+        <DialogContent className="sm:max-w-md bg-linear-to-tl to-[#1F1F1F] from-[#0A0A0A] text-white outline-0 border-none">
+          <SignIn />
+        </DialogContent>
+      </Dialog>
+    )
+  }
+
   const trpc = useTRPC()
 
   const formSchema = z.object({

@@ -49,21 +49,19 @@ export default function EvenScroll() {
         <div className="flex gap-3">
           <Button
             onClick={() => slide(-1)}
-            variant="outline"
             disabled={!canGoBack}
-            className="cursor-pointer rounded-full disabled:opacity-40"
+            className="cursor-pointer h-12 w-12 rounded-full text-[#B2B7C7] text-sm bg-[#161B27] border border-[#333846] disabled:opacity-40 hover:bg-[#1f2637]"
             aria-label="Previous"
           >
-            <ChevronLeft className="h-8 w-8" />
+            <ChevronLeft className="h-8 w-8 text-[#B2B7C7]" />
           </Button>
           <Button
             onClick={() => slide(1)}
-            variant="outline"
             disabled={!canGoForward}
-            className="cursor-pointer rounded-full disabled:opacity-40"
+            className="cursor-pointer h-12 w-12 rounded-full text-[#B2B7C7] text-sm bg-[#161B27] border border-[#333846] disabled:opacity-40 hover:bg-[#1f2637]"
             aria-label="Next"
           >
-            <ChevronRight className="h-8 w-8" />
+            <ChevronRight className="h-8 w-8 text-[#B2B7C7]" />
           </Button>
         </div>
       </div>
@@ -133,8 +131,8 @@ const Card: FC<CardProps> = ({
       </motion.div>
     </Link>
 
-    <div className="flex mt-2">
-      <div className="text-white border capitalize py-1 px-3 rounded-full border-white">
+    <div className="flex my-2">
+      <div className="text-[#B2B7C7] text-sm bg-[#161B27] border border-[#333846] capitalize px-4 py-2 rounded-full">
         {type}
       </div>
     </div>

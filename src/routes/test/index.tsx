@@ -24,18 +24,14 @@ function RouteComponent() {
   }
   return (
     <div className="bg-[#060708] min-h-screen p-4">
-      <h1 className="text-2xl font-bold text-white">All Communites</h1>
+      <h1 className="text-3xl font-bold text-white">All Communites</h1>
       {data.map((c) => {
         return (
-          <Link
-            to={'/community/$communityId'}
-            params={{ communityId: c.slug }}
-            className=""
-          >
+          <Link to={'/community/$communityId'} params={{ communityId: c.slug }}>
             <div className="flex gap-4 my-4 py-4 rounded text-white/50 transition-colors hover:text-white">
               <img
                 src={c.coverImageUrl!}
-                className="w-32 h-32 rounded-xl"
+                className="w-32 h-32 rounded-full border border-[#333846]"
                 alt={c.name}
               />
               <div>
